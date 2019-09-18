@@ -1,19 +1,29 @@
 #include <iostream>
-#include <priority>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-void sort_by_end(Meet* meets, int first, int last)
+typedef struct _Meet
 {
-    if (first < last)
+    int start;
+    int end;
+} Meet;
+
+bool compare(Meet m1, Meet m2)
+{
+    if (m1.end == m2.end)
     {
-        int mid = partition(meets, first, last);
-        sort_by_end(meets, first, mid-1);
-        sort_by_end(meets, mid+1, last);
+        return m1.start < m2.start;
+    }
+    else
+    {
+        return m1.end < m2.end;
     }
 }
 
 int main()
 {
+
     cin.tie(NULL);
     cout.tie(NULL);
     ios::sync_with_stdio(false);
@@ -21,13 +31,15 @@ int main()
     int N;
     cin >> N;
 
-    Meet* meets = new Meet[N];
+    vector<Meet> meets;
     for (int i = 0; i < N; i++)
     {
-        cin >> meets[i].start >> meets[i].end;
+        Meet newMeet;
+        cin >> newMeet.start >> newMeet.end;
+        meets.push_back(newMeet);
     }
 
-    sort_by_end(meets, 0, N-1);
+    sort(meets.begin(), meets.end(), compare);
 
     int count = 0;
     int prev_idx = 0;
