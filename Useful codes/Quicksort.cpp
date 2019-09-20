@@ -15,7 +15,7 @@ void quicksort(T* arr, int first, int last)
 		left = first - 1;
 		right = last + 1;
 		pivot = arr[(first + last) / 2];
-		while (1) {
+		while (true) {
 			while (arr[++left] < pivot);
 			while (arr[--right] > pivot);
 			if (left >= right) break;
