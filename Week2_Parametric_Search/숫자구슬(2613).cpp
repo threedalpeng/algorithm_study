@@ -34,19 +34,34 @@ int main()
         else first = mid + 1;
     }
     cout << res << '\n';
-    int sum = 0, st = 0, c = 0;
+    int sum = 0, st = 0, c = 0, idx = 0;
     int* G = new int[M];
     for (int i = 0; i< N; i++)
     {
         if (sum + A[i] > res)
         {
-            cout << i - st << ' ';
+            G[idx++] = i - st;
             st = i;
             sum = 0;
             ++c;
         }
         sum += A[i];
     }
-    if(++c != M) ;
-    cout << N - st;
+    ++c;
+    G[idx] = N - st;
+
+    //for (int i = 0; i < c; i++) cout << G[i] << ' ';
+    //cout << endl;
+
+    int sub = M - c;
+    for (int i = 0; i < c; i++)
+    {
+        while (sub && G[i] > 1)
+        {
+            cout << "1 ";
+            --G[i];
+            --sub;
+        }
+        cout << G[i] << ' ';
+    }
 }
