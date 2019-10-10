@@ -1,3 +1,4 @@
+// 수 찾기
 #include <iostream>
 #include <algorithm>
 using namespace std;

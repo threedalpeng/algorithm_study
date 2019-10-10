@@ -1,3 +1,4 @@
+// 공유기 설치
 #include <iostream>
 #include <algorithm>
 using namespace std;

@@ -1,3 +1,4 @@
+// 숫자 구슬
 #include <iostream>
 using namespace std;
 int N, M, A[301], G[301];
