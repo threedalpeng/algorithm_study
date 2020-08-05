@@ -41,7 +41,6 @@ int main()
         }
         else // union
         {
-
             ds.u(a, b);
         }
     }

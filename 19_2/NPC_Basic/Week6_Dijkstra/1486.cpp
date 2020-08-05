@@ -1,3 +1,4 @@
+// 등산
 #include <iostream>
 #include <string>
 #include <cstring>

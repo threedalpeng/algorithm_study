@@ -19,7 +19,7 @@ int main()
         int m = 0;
         for(int j = 0; j < i; j++)
         {
-            if (A[i]>A[j] && m < L[j])
+            if (A[i] > A[j] && m < L[j])
                 m = L[j];
         }
         L[i] = m + 1;
