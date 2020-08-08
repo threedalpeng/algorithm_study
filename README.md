@@ -1,5 +1,5 @@
 # Algorithm sources
 
-my works done in the NPC Algorithm study and Codeforces.com
+My works done in the NPC Algorithm Group
 
-problems from Baekjoon OJ(https://acmicpc.net)
+Problems from [Baekjoon OJ](https://acmicpc.net) ~~and [Codeforces](https://codeforces.net)~~
