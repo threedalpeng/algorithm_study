@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-template<typename T>
+template <typename T>
 void swap_element(T& t1, T& t2);
 
-template<typename T>
+template <typename T>
 void print_arr(T* arr, int first, int last);
 
-template<typename T>
+template <typename T>
 bool ascending(T t1, T t2);
 
-template<typename T>
+template <typename T>
 void selectionSort(T* arr, int first, int last, bool (*cmp)(T, T) = ascending);
 
 // main function to check sort
@@ -26,7 +26,7 @@ int main()
     return 0;
 }
 
-template<typename T>
+template <typename T>
 void swap_element(T& t1, T& t2)
 {
     T tmp = t1;
@@ -34,21 +34,23 @@ void swap_element(T& t1, T& t2)
     t2 = tmp;
 }
 
-template<typename T>
-void print_arr(T* arr, int first, int last) {
-    for (int i = first; i <= last; i++) cout << arr[i] << ' ';
+template <typename T>
+void print_arr(T* arr, int first, int last)
+{
+    for (int i = first; i <= last; i++)
+        cout << arr[i] << ' ';
 }
 
-template<typename T>
+template <typename T>
 bool ascending(T t1, T t2)
 {
-	return t1 < t2;
+    return t1 < t2;
 }
 
 /*
 Selection sort in ascending order.
 */
-template<typename T>
+template <typename T>
 void selectionSort(T* arr, int first, int last, bool (*cmp)(T, T))
 {
     int midx;
@@ -56,7 +58,7 @@ void selectionSort(T* arr, int first, int last, bool (*cmp)(T, T))
     {
         midx = i;
         for (int j = i + 1; j <= last; ++j)
-            if (cmp(arr[j], arr[midx])) 
+            if (cmp(arr[j], arr[midx]))
                 midx = j;
         if (i != midx)
             swap_element(arr[i], arr[midx]);
