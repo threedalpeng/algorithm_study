@@ -3,11 +3,11 @@
 #include <vector>
 using namespace std;
 
-int findPattern(string s, string p)
+vector<int> findPattern(string s, string p)
 {
     int len_s = s.length();
     int len_p = p.length();
-    vector<int> fail(len_p);
+    vector<int> fail(len_p, 0);
 
     for (int i = 1, j = 0; i < len_p; i++)
     {
@@ -20,34 +20,30 @@ int findPattern(string s, string p)
     vector<int> result;
     for (int i = 0, j = 0; i < len_s; i++)
     {
-        while (j > 0 && s[i] != p[i])
+        while (j > 0 && s[i] != p[j])
             j = fail[j - 1];
-        if (s[i] == p[i])
+        if (s[i] == p[j])
         {
             if (j == len_p - 1)
             {
-                result.push_back(i - len_p + 2);
+                result.push_back(i - len_p + 1);
                 j = fail[j];
             }
+            else
+                j++;
         }
-        else
-            j++;
     }
-
-    for (auto i : result)
-    {
-        cout << i << ' ';
-    }
-    cout << '\n';
-    if (result.empty())
-        return -1;
-    else
-        return result[0];
+    return result;
 }
 
 int main()
 {
-    string str = "AHAHAHAHAHEEAHEAHAHA";
-    string pat = "AHEE";
-    cout << findPattern(str, pat);
+    string str = "ababababacababca";
+    string pat = "abab";
+
+    for (auto i : findPattern(str, pat))
+    {
+        cout << i << ' ';
+    }
+    cout << '\n';
 }

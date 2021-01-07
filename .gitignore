@@ -2,3 +2,4 @@
 .vscode/
 *.lnk
 *.out
+.cph/
