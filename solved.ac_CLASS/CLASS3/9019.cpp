@@ -53,7 +53,7 @@ string bfs() {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    
+
     cin >> T;
     for (int i = 0; i < nNode; i++) {
         graph[i].push_back((2 * i) % 10000);
