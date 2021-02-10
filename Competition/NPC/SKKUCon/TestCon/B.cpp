@@ -24,7 +24,7 @@ int main() {
         }
         if (!isPossible) break;
     }
-    
+
     if (isPossible) {
         cout << "YES\n";
     }

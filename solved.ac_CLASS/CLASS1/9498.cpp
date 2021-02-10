@@ -4,20 +4,22 @@ using namespace std;
 
 int score;
 
-int main()
-{
+int main() {
     cin >> score;
-    switch(score / 10)
-    {
+    switch (score / 10) {
     case 10:
     case 9:
-        cout << 'A'; break;
+        cout << 'A';
+        break;
     case 8:
-        cout << 'B'; break;
+        cout << 'B';
+        break;
     case 7:
-        cout << 'C'; break;
+        cout << 'C';
+        break;
     case 6:
-        cout << 'D'; break;
+        cout << 'D';
+        break;
     default:
         cout << 'F';
     }

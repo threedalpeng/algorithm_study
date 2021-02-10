@@ -33,7 +33,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         cin >> a[i];
     }
-    for (int i =0; i < M; i++) {
+    for (int i = 0; i < M; i++) {
         cin >> x >> y;
         ds.u(x, y);
     }

@@ -7,8 +7,7 @@ using namespace std;
 int Answer;
 vector<int> A, B;
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
@@ -16,8 +15,7 @@ int main(int argc, char** argv)
     int K, N;
 
     cin >> T;
-    for (test_case = 0; test_case < T; test_case++)
-    {
+    for (test_case = 0; test_case < T; test_case++) {
         cin >> N >> K;
         A.resize(N);
         B.resize(N);

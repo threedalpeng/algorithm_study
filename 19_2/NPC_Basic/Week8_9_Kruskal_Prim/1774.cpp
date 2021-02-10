@@ -2,22 +2,19 @@
 #include <vector>
 using namespace std;
 
-struct DisjointSet
-{
+struct DisjointSet {
     vector<int> par;
-    DisjointSet(int n)
-    {
+    DisjointSet(int n) {
         par.resize(n + 1, -1);
     }
 
-    int f(int v)
-    {
+    int f(int v) {
         if (par[v] == -1) return v;
-        else return v = par[v];
+        else
+            return v = par[v];
     }
 
-    void u(int a, int b)
-    {
+    void u(int a, int b) {
         a = f(a), b = f(b);
         if (a == b) return;
         par[a] = b;
@@ -27,8 +24,7 @@ struct DisjointSet
 int N, M;
 int x, y;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 

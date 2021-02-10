@@ -2,30 +2,29 @@
 #include <iostream>
 using namespace std;
 
-template<typename T>
-struct Node 
-{
-    T val; Node<T>* next, * prev;
-    Node() { next = nullptr; prev = nullptr; }
- };
+template <typename T>
+struct Node {
+    T val;
+    Node<T>*next, *prev;
+    Node() {
+        next = nullptr;
+        prev = nullptr;
+    }
+};
 
-template<typename T>
-class Queue
-{
+template <typename T>
+class Queue {
 public:
-    Queue()
-    {
+    Queue() {
         _size = 0;
         _front = new Node<T>;
         _back = new Node<T>;
         _front->next = _back;
         _back->prev = _front;
     }
-    ~Queue()
-    {
+    ~Queue() {
         Node<T>* tmp;
-        while(_front->next != nullptr)
-        {
+        while (_front->next != nullptr) {
             tmp = _front->next;
             _front->next = tmp->next;
             delete tmp;
@@ -33,11 +32,9 @@ public:
         delete _front;
     }
 
-    void push(T val)
-    {
+    void push(T val) {
         Node<T>* newNode = new Node<T>;
-        if (newNode)
-        {
+        if (newNode) {
             newNode->val = val;
             newNode->next = _back;
             newNode->prev = _back->prev;
@@ -47,8 +44,7 @@ public:
         }
     }
 
-    T pop()
-    {
+    T pop() {
         if (empty()) return -1;
         Node<T>* tmp = _front->next;
         T ret_val = tmp->val;
@@ -59,24 +55,21 @@ public:
         return ret_val;
     }
 
-    int size()
-    {
+    int size() {
         return _size;
     }
-    int empty()
-    {
+    int empty() {
         return _size == 0;
     }
-    T front()
-    {
+    T front() {
         if (empty()) return -1;
         return _front->next->val;
     }
-    T back()
-    {
+    T back() {
         if (empty()) return -1;
         return _back->prev->val;
     }
+
 private:
     Node<T>* _front;
     Node<T>* _back;
@@ -86,38 +79,30 @@ private:
 int n, num;
 string s;
 
-int main()
-{
+int main() {
     cin.tie(NULL);
     ios::sync_with_stdio(false);
     cin >> n;
     Queue<int> q;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> s;
-        if (s == "push")
-        {
+        if (s == "push") {
             cin >> num;
             q.push(num);
         }
-        else if (s == "pop")
-        {
+        else if (s == "pop") {
             cout << q.pop() << '\n';
         }
-        else if (s == "size")
-        {
+        else if (s == "size") {
             cout << q.size() << '\n';
         }
-        else if (s == "empty")
-        {
+        else if (s == "empty") {
             cout << q.empty() << '\n';
         }
-        else if (s == "front")
-        {
+        else if (s == "front") {
             cout << q.front() << '\n';
         }
-        else if (s == "back")
-        {
+        else if (s == "back") {
             cout << q.back() << '\n';
         }
     }

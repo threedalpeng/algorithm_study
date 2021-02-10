@@ -22,41 +22,40 @@ int main() {
         if (str[i] == 'D') {
             startd = i;
             cntd++;
-        } else {
+        }
+        else {
             break;
         }
     }
     for (int i = 0; i < startd; i += 2) {
-        switch (str[i])
-        {
+        switch (str[i]) {
         case 'B':
-            c1 += (s-1);
+            c1 += (s - 1);
             break;
         case 'S':
-            c1 += (g-1);
+            c1 += (g - 1);
             break;
         case 'G':
-            c1 += (p-1);
+            c1 += (p - 1);
             break;
         case 'P':
-            c1 += (d-1);
+            c1 += (d - 1);
             break;
         }
     }
     for (int i = 1; i < startd; i += 2) {
-        switch (str[i])
-        {
+        switch (str[i]) {
         case 'B':
-            c2 += (s-1);
+            c2 += (s - 1);
             break;
         case 'S':
-            c2 += (g-1);
+            c2 += (g - 1);
             break;
         case 'G':
-            c2 += (p-1);
+            c2 += (p - 1);
             break;
         case 'P':
-            c2 += (d-1);
+            c2 += (d - 1);
             break;
         }
     }

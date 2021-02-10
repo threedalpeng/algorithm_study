@@ -4,8 +4,7 @@ using namespace std;
 
 int a, b, v;
 
-int main()
-{
+int main() {
     cin >> a >> b >> v;
-    cout << (v - a) / (a - b) + 1 + ((v - a) % (a - b) ? 1 : 0); 
+    cout << (v - a) / (a - b) + 1 + ((v - a) % (a - b) ? 1 : 0);
 }

@@ -12,6 +12,5 @@ int main() {
 
     int rM = floor(sqrt(M));
     for (int i = rM; rM > 0; i--) {
-        
     }
 }

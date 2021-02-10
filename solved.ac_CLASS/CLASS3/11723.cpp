@@ -1,11 +1,10 @@
 // 집합
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
@@ -13,38 +12,31 @@ int main()
     int M, x;
     string command;
     cin >> M;
-    while (M--)
-    {
+    while (M--) {
         cin >> command;
-        if (command == "add")
-        {
+        if (command == "add") {
             cin >> x;
             unsigned mask = 0x1 << (x - 1);
             set |= mask;
         }
-        else if (command == "remove")
-        {
+        else if (command == "remove") {
             cin >> x;
             unsigned mask = 0x1 << (x - 1);
             set = ~((~set) | mask);
         }
-        else if (command == "check")
-        {
+        else if (command == "check") {
             cin >> x;
             cout << ((set >> (x - 1)) & 0x1) << '\n';
         }
-        else if (command == "toggle")
-        {
+        else if (command == "toggle") {
             cin >> x;
             unsigned mask = 0x1 << (x - 1);
             set ^= mask;
         }
-        else if (command == "all")
-        {
+        else if (command == "all") {
             set = 0xFFFFF;
         }
-        else if (command == "empty")
-        {
+        else if (command == "empty") {
             set = 0x0;
         }
     }

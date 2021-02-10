@@ -7,33 +7,29 @@ string s;
 int abc[26], mx, midx;
 bool multi;
 
-int ctoi(char c)
-{
+int ctoi(char c) {
     if ('a' <= c && c <= 'z') return c - 'a';
-    else if ('A' <= c && c <= 'Z') return c - 'A';
-    else return -1;
+    else if ('A' <= c && c <= 'Z')
+        return c - 'A';
+    else
+        return -1;
 }
 
-int main()
-{
+int main() {
     cin >> s;
-    for (auto c : s)
-    {
+    for (auto c : s) {
         ++abc[ctoi(c)];
     }
-    for (int i = 0; i < 26; i++)
-    {
-        if (mx < abc[i])
-        {
+    for (int i = 0; i < 26; i++) {
+        if (mx < abc[i]) {
             mx = abc[i];
             midx = i;
             multi = false;
         }
-        else if (mx == abc[i])
-        {
+        else if (mx == abc[i]) {
             multi = true;
         }
     }
 
-    cout << ( multi ? '?' : static_cast<char>(midx + 'A') );
+    cout << (multi ? '?' : static_cast<char>(midx + 'A'));
 }

@@ -3,8 +3,7 @@
 using namespace std;
 
 template <typename T>
-struct Node
-{
+struct Node {
     T val;
     Node<T>*left = nullptr, *right = nullptr;
 
@@ -13,20 +12,16 @@ struct Node
 };
 
 template <typename T>
-class BinarySearchTree
-{
+class BinarySearchTree {
 public:
-    BinarySearchTree()
-    {
+    BinarySearchTree() {
         _size = 0;
         _root = nullptr;
     }
 
-    void insert(T _val)
-    {
+    void insert(T _val) {
         Node<T>** walk = &_root;
-        while (*walk)
-        {
+        while (*walk) {
             T curVal = (*walk)->val;
             if (curVal == _val)
                 return;
@@ -38,14 +33,12 @@ public:
         *walk = new Node<T>(_val);
         ++_size;
     }
-    void remove(T _val)
-    {
+    void remove(T _val) {
         Node<T>** walk = &_root;
         if (_size == 0)
             return;
 
-        while (*walk)
-        {
+        while (*walk) {
             T curVal = (*walk)->val;
             if (curVal == _val)
                 break;
@@ -60,32 +53,26 @@ public:
         Node<T>* cur = (*walk);
         (*walk) = nullptr;
         Node<T>* left = cur->left;
-        if (cur->right)
-        {
+        if (cur->right) {
             (*walk) = cur->right;
-            if (cur->left)
-            {
+            if (cur->left) {
                 Node<T>* rep = (*walk);
-                while (rep->left)
-                {
+                while (rep->left) {
                     rep = rep->left;
                 }
                 rep->left = left;
             }
         }
-        else if (cur->left)
-        {
+        else if (cur->left) {
             (*walk) = left;
         }
         delete cur;
         --_size;
     }
 
-    bool find(T _val)
-    {
+    bool find(T _val) {
         Node<T>** walk = &_root;
-        while (*walk)
-        {
+        while (*walk) {
             T curVal = (*walk)->val;
             if (curVal == _val)
                 return true;
@@ -97,15 +84,13 @@ public:
         return false;
     }
 
-    void print()
-    {
+    void print() {
         cout << "size: " << size() << '\n';
         traverse([](Node<T>* root) { cout << root->val << ' '; }, _root);
         cout << '\n';
     }
 
-    int size()
-    {
+    int size() {
         return _size;
     }
 
@@ -113,8 +98,7 @@ private:
     Node<T>* _root;
     int _size;
 
-    void traverse(function<void(Node<T>*)> func, Node<T>* root)
-    {
+    void traverse(function<void(Node<T>*)> func, Node<T>* root) {
         if (!root)
             return;
         traverse(func, root->left);
@@ -123,8 +107,7 @@ private:
     }
 };
 
-int main()
-{
+int main() {
     BinarySearchTree<int> BST;
     BST.insert(4);
     BST.insert(9);

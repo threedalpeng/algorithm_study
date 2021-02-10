@@ -7,22 +7,18 @@ int n, t;
 stack<int> S;
 string res;
 
-int main()
-{
+int main() {
     cin >> n;
     int cur = 1;
     S.push(0);
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
         cin >> t;
-        while(cur <= t)
-        {
+        while (cur <= t) {
             S.push(cur);
             res += "+\n";
             cur++;
         }
-        if (S.top() != t)
-        {
+        if (S.top() != t) {
             cout << "NO";
             return 0;
         }

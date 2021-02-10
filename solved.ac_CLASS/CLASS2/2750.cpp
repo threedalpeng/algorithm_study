@@ -4,18 +4,17 @@ using namespace std;
 
 int n, arr[1001];
 
-void quicksort(int* a, int first, int last)
-{
+void quicksort(int* a, int first, int last) {
     int left, right, pivot, tmp;
-    if (first < last)
-    {
+    if (first < last) {
         left = first;
         right = last;
         pivot = a[(first + last) >> 1];
-        while(true)
-        {
-            while (a[left] < pivot) ++left;
-            while (pivot < a[right]) --right;
+        while (true) {
+            while (a[left] < pivot)
+                ++left;
+            while (pivot < a[right])
+                --right;
             if (left >= right) break;
             tmp = a[left];
             a[left] = a[right];
@@ -26,8 +25,7 @@ void quicksort(int* a, int first, int last)
     }
 }
 
-int main()
-{
+int main() {
     cin >> n;
     for (int i = 0; i < n; i++)
         cin >> arr[i];

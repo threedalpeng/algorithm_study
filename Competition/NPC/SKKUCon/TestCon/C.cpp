@@ -21,7 +21,7 @@ int main() {
             np.push_back(a[i]);
         }
     }
-    
+
     int res = 0;
     for (auto ban : np) {
         int llen = 0, cnum = a[0], clen = 0;

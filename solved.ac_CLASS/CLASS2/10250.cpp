@@ -4,16 +4,13 @@ using namespace std;
 
 int t, h, w, n;
 
-int main()
-{
+int main() {
     cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    for (int i = 0; i < t; i++) {
         cin >> h >> w >> n;
         int f = n % h;
         int no = n / h + 1;
-        if (f == 0)
-        {
+        if (f == 0) {
             f = h;
             --no;
         }

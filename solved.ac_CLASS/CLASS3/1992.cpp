@@ -6,8 +6,7 @@ using namespace std;
 int N;
 vector<string> vs;
 
-string divide(int x, int y, int n)
-{
+string divide(int x, int y, int n) {
     if (n == 1) return vs[x].substr(y, 1);
     n /= 2;
     string s1 = divide(x, y, n);
@@ -20,12 +19,10 @@ string divide(int x, int y, int n)
         return "("s + s1 + s2 + s3 + s4 + ")"s;
 }
 
-int main()
-{
+int main() {
     cin >> N;
     string si, res = "";
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         cin >> si;
         vs.push_back(si);
     }

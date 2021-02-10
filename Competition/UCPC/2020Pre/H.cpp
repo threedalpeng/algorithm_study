@@ -1,19 +1,17 @@
 // 사과나무 / 19539
-#include <iostream>
 #include <cmath>
+#include <iostream>
 using namespace std;
 using ll = long long;
 
 int n, v;
-int main()
-{
+int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
     cin >> n;
     ll n1 = 0, n2 = 0;
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
         cin >> v;
         n1 += (v % 2);
         n2 += (v / 2);

@@ -4,9 +4,7 @@ using namespace std;
 int L;
 string s;
 
-int main()
-{
+int main() {
     cin >> L;
     cin >> s;
-    
 }

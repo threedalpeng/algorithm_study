@@ -6,8 +6,7 @@ using namespace std;
 
 using ll = long long;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
@@ -15,26 +14,20 @@ int main()
     ll n;
     char op;
     cin >> T;
-    while (T--)
-    {
+    while (T--) {
         multiset<ll> dpq;
         cin >> k;
-        while (k--)
-        {
+        while (k--) {
             cin >> op >> n;
-            if (op == 'D' && !dpq.empty())
-            {
-                if (n == 1)
-                {
+            if (op == 'D' && !dpq.empty()) {
+                if (n == 1) {
                     dpq.erase(--(dpq.end()));
                 }
-                else if (n == -1)
-                {
+                else if (n == -1) {
                     dpq.erase(dpq.begin());
                 }
             }
-            else if (op == 'I')
-            {
+            else if (op == 'I') {
                 dpq.insert(n);
             }
         }

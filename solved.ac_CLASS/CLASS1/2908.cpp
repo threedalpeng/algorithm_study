@@ -4,17 +4,14 @@ using namespace std;
 
 int a, b, am, bm;
 
-int main()
-{
+int main() {
     cin >> a >> b;
-    while (a)
-    {
+    while (a) {
         am *= 10;
         am += a % 10;
         a /= 10;
     }
-    while (b)
-    {
+    while (b) {
         bm *= 10;
         bm += b % 10;
         b /= 10;

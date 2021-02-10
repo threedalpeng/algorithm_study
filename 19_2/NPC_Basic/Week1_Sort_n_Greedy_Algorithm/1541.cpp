@@ -1,11 +1,10 @@
 // 잃어버린 괄호
-#include <iostream>
 #include <cctype>
+#include <iostream>
 
 using namespace std;
 
-int main()
-{
+int main() {
     string s_input;
     cin >> s_input;
 
@@ -15,31 +14,24 @@ int main()
     int result = 0;
 
     int i = 0;
-    for(i; i < s_input.length(); i++)
-    {
-        if (isdigit(s_input[i]))
-        {
+    for (i; i < s_input.length(); i++) {
+        if (isdigit(s_input[i])) {
             num = num * 10 + (s_input[i] - '0');
         }
-        else
-        {
+        else {
             result += num;
             num = 0;
-            if (s_input[i] == '-')
-            {
+            if (s_input[i] == '-') {
                 break;
             }
         }
     }
 
-    for(i; i < s_input.length(); i++)
-    {
-        if (isdigit(s_input[i]))
-        {
+    for (i; i < s_input.length(); i++) {
+        if (isdigit(s_input[i])) {
             num = num * 10 + (s_input[i] - '0');
         }
-        else
-        {
+        else {
             result -= num;
             num = 0;
         }

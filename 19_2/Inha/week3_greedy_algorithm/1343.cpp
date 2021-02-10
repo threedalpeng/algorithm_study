@@ -4,25 +4,19 @@ using namespace std;
 
 string s, ans;
 
-int main()
-{
+int main() {
     cin >> s;
     int cnt = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (s[i] == 'X')
-        {
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
             ++cnt;
-            if (cnt == 4)
-            {
+            if (cnt == 4) {
                 ans += "AAAA";
                 cnt = 0;
             }
         }
-        else
-        {
-            if (cnt % 2)
-            {
+        else {
+            if (cnt % 2) {
                 ans = "-1";
                 break;
             }

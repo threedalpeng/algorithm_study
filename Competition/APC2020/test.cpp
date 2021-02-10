@@ -5,7 +5,7 @@ using ll = long long;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll a, c, seed, m, x1,x2;
+    ll a, c, seed, m, x1, x2;
     cin >> m >> seed >> a >> c;
     // c = m - seed;
     x1 = (a * seed + c) % m;

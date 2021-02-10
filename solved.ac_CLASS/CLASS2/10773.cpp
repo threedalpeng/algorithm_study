@@ -7,21 +7,17 @@ using namespace std;
 int k, num, sum;
 vector<int> v;
 
-int main()
-{
+int main() {
     cin.tie(NULL);
     ios::sync_with_stdio(false);
     cin >> k;
-    for (int i = 0; i < k; i++)
-    {
+    for (int i = 0; i < k; i++) {
         cin >> num;
-        if (num == 0)
-        {
+        if (num == 0) {
             sum -= v.back();
             v.pop_back();
         }
-        else
-        {
+        else {
             sum += num;
             v.push_back(num);
         }

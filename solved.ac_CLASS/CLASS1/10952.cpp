@@ -2,13 +2,10 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int A, B;
-    while (cin >> A >> B)
-    {
-        if (A == 0)
-        {
+    while (cin >> A >> B) {
+        if (A == 0) {
             break;
         }
         cout << A + B << endl;

@@ -1,25 +1,20 @@
 template <typename T>
-struct Node
-{
+struct Node {
     T val;
-    Node *next;
+    Node* next;
     Node() { next = nullptr; }
 };
 
 template <typename T>
-class Stack
-{
+class Stack {
 public:
-    Stack()
-    {
+    Stack() {
         _size = 0;
         _top = new Node<T>;
     }
-    ~Stack()
-    {
-        Node<T> *tmp;
-        while (_top->next != nullptr)
-        {
+    ~Stack() {
+        Node<T>* tmp;
+        while (_top->next != nullptr) {
             tmp = _top->next;
             _top->next = tmp->next;
             delete tmp;
@@ -27,11 +22,9 @@ public:
         delete _top;
     }
 
-    void push(T val)
-    {
-        Node<T> *newNode = new Node<T>;
-        if (newNode)
-        {
+    void push(T val) {
+        Node<T>* newNode = new Node<T>;
+        if (newNode) {
             newNode->val = val;
             newNode->next = _top->next;
             _top->next = newNode;
@@ -39,11 +32,10 @@ public:
         }
     }
 
-    T pop()
-    {
+    T pop() {
         if (empty())
             return -1;
-        Node<T> *tmp = _top->next;
+        Node<T>* tmp = _top->next;
         T ret_val = tmp->val;
         _top->next = tmp->next;
         delete tmp;
@@ -51,22 +43,19 @@ public:
         return ret_val;
     }
 
-    int size()
-    {
+    int size() {
         return _size;
     }
-    int empty()
-    {
+    int empty() {
         return _size == 0;
     }
-    T top()
-    {
+    T top() {
         if (empty())
             exit(-1);
         return _top->next->val;
     }
 
 private:
-    Node<T> *_top;
+    Node<T>* _top;
     int _size;
 };

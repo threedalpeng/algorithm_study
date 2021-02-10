@@ -18,17 +18,17 @@ int main() {
     cin >> N >> M;
     string tm;
     vector<pii> fscore, lscore;
-    fscore.resize(N+1);
-    lscore.resize(N+1);
+    fscore.resize(N + 1);
+    lscore.resize(N + 1);
     int ctm = 180, tmi, id, p, s;
     for (int i = 0; i < M; i++) {
         cin >> tm >> id >> p >> s;
         tmi = ttoi(tm);
         if (tmi < 180) {
             fscore[p].first++;
-            fscore[p].second += (tmi + (s-1)*20);
+            fscore[p].second += (tmi + (s - 1) * 20);
         }
         lscore[p].first++;
-        lscore[p].second += (tmi + (s-1)*20);
+        lscore[p].second += (tmi + (s - 1) * 20);
     }
 }

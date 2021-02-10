@@ -5,11 +5,9 @@ using namespace std;
 
 int a, b;
 
-int gcd(int a, int b)
-{
+int gcd(int a, int b) {
     int c;
-    while(b)
-    {
+    while (b) {
         c = a % b;
         a = b;
         b = c;
@@ -17,8 +15,7 @@ int gcd(int a, int b)
     return a;
 }
 
-int main()
-{
+int main() {
     cin >> a >> b;
     int c = (a > b ? gcd(b, a) : gcd(a, b));
     int d = a * b / c;

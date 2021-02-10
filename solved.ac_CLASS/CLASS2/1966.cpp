@@ -6,34 +6,30 @@ using pii = pair<int, int>;
 
 int T, N, M, prior, cnt;
 
-int main()
-{
+int main() {
     cin >> T;
-    while(T--)
-    {
+    while (T--) {
         queue<pii> q;
         priority_queue<int> pq;
         cin >> N >> M;
-        for (int j = 0; j < N; j++)
-        {
+        for (int j = 0; j < N; j++) {
             cin >> prior;
-            q.push({j, prior});
+            q.push({ j, prior });
             pq.push(prior);
         }
         cnt = 0;
-        while(!q.empty())
-        {
-            while(pq.top() != q.front().second)
-            {
+        while (!q.empty()) {
+            while (pq.top() != q.front().second) {
                 q.push(q.front());
                 q.pop();
             }
-            if (q.front().first == M)
-            {
+            if (q.front().first == M) {
                 cnt++;
                 break;
             }
-            pq.pop(); q.pop(); cnt++;
+            pq.pop();
+            q.pop();
+            cnt++;
         }
         cout << cnt << '\n';
     }

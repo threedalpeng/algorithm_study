@@ -4,15 +4,12 @@ using namespace std;
 
 int N;
 
-int main()
-{
+int main() {
     cin >> N;
     int cnt = 0;
-    for (int i = 5; i <= N; i += 5)
-    {
+    for (int i = 5; i <= N; i += 5) {
         int tmp = i;
-        while(!(tmp % 5))
-        {
+        while (!(tmp % 5)) {
             tmp /= 5;
             cnt++;
         }

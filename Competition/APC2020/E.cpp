@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char swap_map[128] = {0}, mirr_map[128] = {0};
+char swap_map[128] = { 0 }, mirr_map[128] = { 0 };
 
 int main() {
     ios::sync_with_stdio(false);
@@ -82,7 +82,8 @@ int main() {
     for (int i = 0; i < slen; i++) {
         if (mirr_map[s[i]]) {
             mirror[slen - i - 1] = mirr_map[s[i]];
-        } else {
+        }
+        else {
             cout << "-1\n";
             return 0;
         }
@@ -108,7 +109,7 @@ int main() {
     }
     int stidx = slen - 1 - qsize;
     for (int i = stidx; i >= 0; i--) {
-        if (s[i] == mirr_map[s[slen-1]]) {
+        if (s[i] == mirr_map[s[slen - 1]]) {
             is_quil = true;
             for (int j = i; j <= (slen - i) / 2; j++) {
                 if (s[j] != mirr_map[s[slen + i - 1 - j]]) {
@@ -133,7 +134,8 @@ int main() {
 
     if (bg == 0) {
         cout << mirror.substr(0, osize) + s << '\n';
-    } else {
+    }
+    else {
         cout << s + mirror.substr(slen - osize, osize) << '\n';
     }
 }

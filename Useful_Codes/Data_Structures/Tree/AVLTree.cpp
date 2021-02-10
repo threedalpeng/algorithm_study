@@ -4,8 +4,7 @@
 using namespace std;
 
 template <typename T>
-struct Node
-{
+struct Node {
     T val;
     Node<T>*left = nullptr, *right = nullptr;
     int height = 1, balanceFactor = 0;
@@ -13,8 +12,7 @@ struct Node
     Node() {}
     Node(T _val) : val(_val) {}
 
-    void update()
-    {
+    void update() {
         int leftHeight = (left ? left->height : 0);
         int rightHeight = (right ? right->height : 0);
         height = (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
@@ -23,21 +21,17 @@ struct Node
 };
 
 template <typename T>
-class AVLTree
-{
+class AVLTree {
 public:
-    AVLTree()
-    {
+    AVLTree() {
         _size = 0;
         _root = nullptr;
     }
 
-    void insert(T _val)
-    {
+    void insert(T _val) {
         Node<T>** walk = &_root;
         stack<Node<T>**> updateList;
-        while (*walk)
-        {
+        while (*walk) {
             updateList.push(walk);
             T curVal = (*walk)->val;
             if (curVal == _val)
@@ -49,23 +43,20 @@ public:
         }
 
         *walk = new Node<T>(_val);
-        while (!updateList.empty())
-        {
+        while (!updateList.empty()) {
             rebalance(updateList.top());
             updateList.pop();
         }
 
         ++_size;
     }
-    void remove(T _val)
-    {
+    void remove(T _val) {
         Node<T>** walk = &_root;
         if (_size == 0)
             return;
 
         stack<Node<T>**> updateList;
-        while (*walk)
-        {
+        while (*walk) {
             updateList.push(walk);
             T curVal = (*walk)->val;
             if (curVal == _val)
@@ -81,21 +72,17 @@ public:
         Node<T>* cur = (*walk);
         (*walk) = nullptr;
         Node<T>* left = cur->left;
-        if (cur->right)
-        {
+        if (cur->right) {
             (*walk) = cur->right;
-            if (cur->left)
-            {
+            if (cur->left) {
                 Node<T>* rep = (*walk);
-                while (rep->left)
-                {
+                while (rep->left) {
                     rep = rep->left;
                 }
                 rep->left = left;
             }
         }
-        else if (cur->left)
-        {
+        else if (cur->left) {
             (*walk) = left;
         }
         delete cur;
@@ -106,8 +93,7 @@ public:
             }),
             updateList.top());
         updateList.pop();
-        while (!updateList.empty())
-        {
+        while (!updateList.empty()) {
             rebalance(updateList.top());
             updateList.pop();
         }
@@ -115,11 +101,9 @@ public:
         --_size;
     }
 
-    bool find(T _val)
-    {
+    bool find(T _val) {
         Node<T>** walk = &_root;
-        while (*walk)
-        {
+        while (*walk) {
             T curVal = (*walk)->val;
             if (curVal == _val)
                 return true;
@@ -131,8 +115,7 @@ public:
         return false;
     }
 
-    void print()
-    {
+    void print() {
         cout << "size: " << size() << '\n';
         inorder_traverse(
             [](Node<T>** root) {
@@ -142,8 +125,7 @@ public:
         cout << '\n';
     }
 
-    int size()
-    {
+    int size() {
         return _size;
     }
 
@@ -151,16 +133,14 @@ private:
     Node<T>* _root;
     int _size;
 
-    void inorder_traverse(function<void(Node<T>**)> func, Node<T>** root)
-    {
+    void inorder_traverse(function<void(Node<T>**)> func, Node<T>** root) {
         if (!(*root))
             return;
         inorder_traverse(func, &((*root)->left));
         func(root);
         inorder_traverse(func, &((*root)->right));
     }
-    void postorder_traverse(function<void(Node<T>**)> func, Node<T>** root)
-    {
+    void postorder_traverse(function<void(Node<T>**)> func, Node<T>** root) {
         if (!(*root))
             return;
         postorder_traverse(func, &((*root)->left));
@@ -168,23 +148,20 @@ private:
         func(root);
     }
 
-    void rebalance(Node<T>** node)
-    {
+    void rebalance(Node<T>** node) {
         if (!(*node))
             return;
-            
+
         (*node)->update();
 
-        if ((*node)->balanceFactor < -1)
-        {
+        if ((*node)->balanceFactor < -1) {
             if ((*node)->left && (*node)->left->balanceFactor == 1) // LR-rotate
             {
                 lrotate(&((*node)->left));
             }
             rrotate(node);
         }
-        else if ((*node)->balanceFactor > 1)
-        {
+        else if ((*node)->balanceFactor > 1) {
             if ((*node)->right && (*node)->right->balanceFactor == -1) // RL-rotate
             {
                 rrotate(&((*node)->right));
@@ -193,8 +170,7 @@ private:
         }
     }
 
-    void lrotate(Node<T>** node)
-    {
+    void lrotate(Node<T>** node) {
         Node<T>* cur = (*node);
         Node<T>* right = cur->right;
         Node<T>* right_child = right->left;
@@ -207,8 +183,7 @@ private:
         (*node)->update();
     }
 
-    void rrotate(Node<T>** node)
-    {
+    void rrotate(Node<T>** node) {
         Node<T>* cur = (*node);
         Node<T>* left = cur->left;
         Node<T>* left_child = left->right;
@@ -222,8 +197,7 @@ private:
     }
 };
 
-int main()
-{
+int main() {
     AVLTree<int> tree;
     tree.insert(5);
     tree.print();

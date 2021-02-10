@@ -17,7 +17,10 @@ int main() {
         a = 0;
         s1 = X2 - X1;
         s2 = X1 - seed;
-        while(s1 % m) {a++; s1-=s2;}
+        while (s1 % m) {
+            a++;
+            s1 -= s2;
+        }
         c = (X1 - a * seed) % m;
         c = (c < 0 ? m + c : c);
     }
@@ -26,5 +29,4 @@ int main() {
         c = m - seed;
     }
     cout << a << ' ' << c;
-
 }

@@ -1,10 +1,9 @@
 // 로프
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
@@ -14,8 +13,7 @@ int main()
         cin >> w[i];
     sort(w + 1, w + N + 1, greater<int>());
     int mx = 0;
-    for (int i = 1; i <= N; i++)
-    {
+    for (int i = 1; i <= N; i++) {
         mx = max(w[i] * i, mx);
     }
     cout << mx << '\n';
