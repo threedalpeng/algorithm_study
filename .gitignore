@@ -3,3 +3,4 @@
 *.lnk
 *.out
 .cph/
+rust/
