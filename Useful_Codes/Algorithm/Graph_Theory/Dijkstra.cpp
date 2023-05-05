@@ -23,8 +23,10 @@ void init(int v) {
 }
 
 int main() {
+    // 정점 n개, 간선 m개
     cin >> n >> m >> x;
     for (int i = 1; i <= m; i++) {
+        // s에서 f까지 거리 t
         cin >> s >> f >> t;
         lst[s].push_back({ t, f });
     }
